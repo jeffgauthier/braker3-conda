@@ -1,5 +1,5 @@
 # braker3-singularity-wrapper
-A workaround to run BRAKER3 (singularity) from a conda env. Based on the install and testing instructions available at:
+A workaround to run BRAKER3 (the Singularity container) from a conda env. Based on the install and testing instructions available at:
 https://github.com/Gaius-Augustus/BRAKER
 
 It also fixes a write permission issue with AUGUSTUS in the singularity container by using a `git clone` of Augustus config path.
