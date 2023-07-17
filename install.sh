@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# crash if errors occur
-set -e
-
 # create conda environment for the container
 source $CONDA_PREFIX/etc/profile.d/conda.sh
 conda create -n braker3_env
