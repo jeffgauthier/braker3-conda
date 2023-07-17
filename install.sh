@@ -23,7 +23,9 @@ EOF
 singularity exec braker3.sif braker.pl
 
 # pull test-data checks
-singularity exec -B $PWD:$PWD braker3.sif cp -v /opt/BRAKER/example/singularity-tests/test*.sh .
+singularity exec -B $PWD:$PWD braker3.sif cp -v /opt/BRAKER/example/singularity-tests/test1.sh .
+singularity exec -B $PWD:$PWD braker3.sif cp -v /opt/BRAKER/example/singularity-tests/test2.sh .
+singularity exec -B $PWD:$PWD braker3.sif cp -v /opt/BRAKER/example/singularity-tests/test3.sh .
 
 # export path to BRAKER3 container for test scripts
 export BRAKER_SIF=$(realpath braker3.sif) # may need to modify
