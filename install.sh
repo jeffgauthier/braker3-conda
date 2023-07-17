@@ -14,11 +14,6 @@ singularity build braker3.sif docker://teambraker/braker3:latest
 # test execution (print setup)
 singularity exec braker3.sif print_braker3_setup.py
 
-# move GeneMark-ETP license to home folder as required
-cat << 'EOF' > ~/gm_key
-[!!!!!!!!!!!!!!!!!! Copy the contents of GeneMark-ETP's licence file here !!!!!!!!!!!!!!]
-EOF
-
 # test BRAKER3 execution
 singularity exec braker3.sif braker.pl
 
