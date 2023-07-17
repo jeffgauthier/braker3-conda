@@ -45,10 +45,17 @@ bash test3.sh
 cp -vr braker3.sif Augustus $CONDA_PREFIX
 cat << 'EOF' > $CONDA_PREFIX/bin/run_braker3
 #!/bin/bash
-ln -s $CONDA_PREFIX/braker3.sif braker3.sif
-singularity exec -B $PWD:$PWD braker3.sif braker.pl --AUGUSTUS_CONFIG_PATH=$CONDA_PREFIX/Augustus/config $*
+ln -s $CONDA_PREFIX/braker3.sif braker3-lnk.sif
+git clone https://github.com/Gaius-Augustus/Augustus
+singularity exec -B $PWD:$PWD braker3-lnk.sif braker.pl \
+        --AUGUSTUS_CONFIG_PATH=$PWD/Augustus/config $*
+rm braker3-lnk.sif Augustus -rf
 EOF
 
 # test wrapper script
 chmod 775 $CONDA_PREFIX/bin/run_braker3
 run_braker3
+
+# clean install
+echo "Cleaning temporary install files..."
+rm Augustus test1* test2* test3* -rvf
